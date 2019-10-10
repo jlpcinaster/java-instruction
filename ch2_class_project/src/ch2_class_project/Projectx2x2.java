@@ -7,36 +7,45 @@ public class Projectx2x2 {
 	public static void main(String[] args) {
 
 		System.out.println("Welcome to the Letter Grade Converter");
-		int  Gvalue ;
-		
-		System.out.println("Enter Numerical Grade: ");
-		Scanner Gvalue = new Scanner (System.in);
-		
+		System.out.println();
+		@SuppressWarnings("resource")
+		Scanner choice = new Scanner(System.in);
+		String moreGrades = "y";
+		while (moreGrades.equalsIgnoreCase("y")) {
 
-		
-		if (letgr >= 88 && letgr <= 100) {
-			System.out.println("Letter Grade: A");				
-	}
-		if (letgr >= 80 && letgr <= 87) {
-			System.out.println("Letter Grade: B");				
-	}
-		if (letgr >= 67 && letgr <= 79) {
-			System.out.println("Letter Grade: C");				
-	}
-		if (letgr >= 60 && letgr <= 66) {
-			System.out.println("Letter Grade: D");				
-	}
-		if (letgr >= 0 && letgr <= 60) {
-			System.out.println("Letter Grade: A");				
-	}
-		if (letgr >= 100 && letgr <= 0) {
-			System.out.println("I'm afraid that's not a Grade Value, please try again");				
-	}
+			System.out.println("Enter Numerical Grade: ");
+			@SuppressWarnings("resource")
+			Scanner Grade = new Scanner(System.in);
 
-		System.out.println("Continue?");
-		Scanner cont = new Scanner(System.in);
-		String answer=cont.next();
+			int Gvalue;
+			String letgr = null;
+			Gvalue = Grade.nextInt();
 
-		if(answer.equals("Y") || answer.equals("y")){
-		  mathgradecalculation.Grademath();
+			if (Gvalue >= 88 && Gvalue <= 100)
+				letgr = "A";
+
+			else if (Gvalue >= 80 && Gvalue <= 87)
+				letgr = "B";
+
+			else if (Gvalue >= 67 && Gvalue <= 79)
+				letgr = "C";
+
+			else if (Gvalue >= 60 && Gvalue <= 66)
+				letgr = "D";
+
+			else if (Gvalue >= 0 && Gvalue <= 60)
+				letgr = "F";
+
+			else if (Gvalue >= 100 && Gvalue <= 0)
+				letgr = "I'm afraid that's not valid Grade Value, please try again";
+
+			System.out.println("Letter Grade: " + letgr);
+
+			System.out.println("Continue? y/n");
+			moreGrades = choice.next();
+			choice.next();
+		}
+		System.out.println("Bye!");
+
+	}
 }
